@@ -40,12 +40,49 @@ public class UserRegistration {
     }
 
 
+    // //UC-3 Validate the Email Address
+    public void email_ID()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your Email: ");
+        String email = sc.next();
+        String emailId = "[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]";
+
+        Pattern p= Pattern.compile(emailId);
+        Matcher matcher=p.matcher(email);
+
+        if(matcher.find())
+            System.out.println("Valid Email Id.....");
+        else
+            System.out.println("Invalid Email Id.....");
+    }
+
+
     public static void main(String a[]) {
 
         UserRegistration user = new UserRegistration();
-        int ch = 0;
 
-        user.Firstname();
-        user.lastName();
-    }
+        int ch = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("1.Name \n2.LastName \n3.Email_Id \n4.Exit");
+        System.out.println("Enter your choice");
+        ch = sc.nextInt();
+        switch(ch) {
+            case 1:
+                user.Firstname();
+                break;
+            case 2:
+                user.lastName();
+                break;
+            case 3:
+                user.email_ID();
+                break;
+            case 4:
+                return;
+            default:
+                System.out.println("Enter Valid Choice...!");
+                break;
+        }
+
+        }
 }
