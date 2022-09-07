@@ -57,6 +57,25 @@ public class UserRegistration {
             System.out.println("Invalid Email Id.....");
     }
 
+    //uc-4 Validates the Users Mobile Number
+
+    public void mobileNum()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your Mobile Num: ");
+        String num = sc.next();
+        String mobile="(91|0)?+[7-9]+[0-9]{9}";
+
+        Pattern p=Pattern.compile(mobile);
+        Matcher matcher=p.matcher(num);
+
+        if(matcher.find())
+            System.out.println("Valid Number.....");
+        else
+            System.out.println("Invalid Number.....");
+    }
+
+
 
     public static void main(String a[]) {
 
@@ -64,7 +83,7 @@ public class UserRegistration {
 
         int ch = 0;
         Scanner sc = new Scanner(System.in);
-        System.out.println("1.Name \n2.LastName \n3.Email_Id \n4.Exit");
+        System.out.println("1.Name \n2.LastName \n3.Email_Id \n4.Mobile Num \n5.Exit");
         System.out.println("Enter your choice");
         ch = sc.nextInt();
         switch(ch) {
@@ -78,6 +97,9 @@ public class UserRegistration {
                 user.email_ID();
                 break;
             case 4:
+                user.mobileNum();
+                break;
+            case 5:
                 return;
             default:
                 System.out.println("Enter Valid Choice...!");
