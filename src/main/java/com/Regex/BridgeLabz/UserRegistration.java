@@ -76,14 +76,33 @@ public class UserRegistration {
     }
 
 
+    //UC5 Validates Password-Rule 1-Minimum 8 characters.
+    public void password()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your pass: ");
+        String pass = sc.next();
+        //Minimum 8 characters
+        String password= "[a-zA-z]{8,}";
 
-    public static void main(String a[]) {
+        Pattern p=Pattern.compile(password);
+        Matcher matcher=p.matcher(pass);
+
+        if(matcher.find())
+            System.out.println("Valid Password.....");
+        else
+            System.out.println("Invalid Password.....");
+    }
+
+
+
+        public static void main(String a[]) {
 
         UserRegistration user = new UserRegistration();
 
         int ch = 0;
         Scanner sc = new Scanner(System.in);
-        System.out.println("1.Name \n2.LastName \n3.Email_Id \n4.Mobile Num \n5.Exit");
+        System.out.println("1.Name \n2.LastName \n3.Email_Id \n4.Mobile Num \n5.Password \n6.Exit");
         System.out.println("Enter your choice");
         ch = sc.nextInt();
         switch(ch) {
@@ -100,6 +119,8 @@ public class UserRegistration {
                 user.mobileNum();
                 break;
             case 5:
+                user.password();
+            case 6:
                 return;
             default:
                 System.out.println("Enter Valid Choice...!");
