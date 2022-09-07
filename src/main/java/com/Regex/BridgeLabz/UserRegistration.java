@@ -22,6 +22,23 @@ public class UserRegistration {
             System.out.println("Invalid Name.....");
     }
 
+    //UC2- Validate the Users Last NAme
+    public void lastName()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your Name: ");
+        String n = sc.next();
+        String Name="^[A-Z][a-z]{2,}";
+
+        Pattern p= Pattern.compile(Name);
+        Matcher matcher=p.matcher(n);
+
+        if(matcher.find())
+            System.out.println("Valid Name.....");
+        else
+            System.out.println("Invalid Name.....");
+    }
+
 
     public static void main(String a[]) {
 
@@ -29,5 +46,6 @@ public class UserRegistration {
         int ch = 0;
 
         user.Firstname();
+        user.lastName();
     }
 }
