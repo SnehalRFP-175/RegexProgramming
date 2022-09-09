@@ -76,7 +76,7 @@ public class UserRegistration {
     }
 
 
-    //UC7 Validates Password-Rule 3- At least one Numeric Number
+    //UC8 Validates Password-Rule 4- Having Exactly One Special Character
 
     public void password()
     {
