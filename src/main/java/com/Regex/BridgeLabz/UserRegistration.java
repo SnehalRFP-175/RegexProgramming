@@ -76,14 +76,14 @@ public class UserRegistration {
     }
 
 
-    //UC5 Validates Password-Rule 1-Minimum 8 characters.
+    //UC6 Validates Password-Rule 2- At least one Upper Case characters.
     public void password()
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your pass: ");
         String pass = sc.next();
-        //Minimum 8 characters
-        String password= "[a-zA-z]{8,}";
+
+        String password= "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
 
         Pattern p=Pattern.compile(password);
         Matcher matcher=p.matcher(pass);
@@ -93,8 +93,6 @@ public class UserRegistration {
         else
             System.out.println("Invalid Password.....");
     }
-
-
 
         public static void main(String a[]) {
 
