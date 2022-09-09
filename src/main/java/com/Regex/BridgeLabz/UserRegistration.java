@@ -76,14 +76,15 @@ public class UserRegistration {
     }
 
 
-    //UC6 Validates Password-Rule 2- At least one Upper Case characters.
+    //UC7 Validates Password-Rule 3- At least one Numeric Number
+    
     public void password()
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your pass: ");
         String pass = sc.next();
 
-        String password= "^(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+        String password= "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$";
 
         Pattern p=Pattern.compile(password);
         Matcher matcher=p.matcher(pass);
