@@ -40,13 +40,13 @@ public class UserRegistration {
     }
 
 
-    // //UC-3 Validate the Email Address
+    // //UC-9 Validate the Email Address
     public void email_ID()
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your Email: ");
         String email = sc.next();
-        String emailId = "[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]";
+        String emailId = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=[^@#$%^&*+=]*[@#$%^&*+=][^@#$%^&*+=]*$).{8,}$";
 
         Pattern p= Pattern.compile(emailId);
         Matcher matcher=p.matcher(email);
@@ -95,7 +95,8 @@ public class UserRegistration {
             System.out.println("Invalid Password.....");
     }
 
-        public static void main(String a[]) {
+        public static void main(String a[])
+        {
 
         UserRegistration user = new UserRegistration();
 
@@ -119,6 +120,7 @@ public class UserRegistration {
                 break;
             case 5:
                 user.password();
+                break;
             case 6:
                 return;
             default:
